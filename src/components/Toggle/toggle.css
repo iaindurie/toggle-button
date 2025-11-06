@@ -1,0 +1,59 @@
+.toggle-button {
+  font-size: 1rem;
+  background: rgba(0, 0, 0, 0.02);
+  inline-size: 18.75em;
+  aspect-ratio: 1;
+  border-radius: 1em;
+  border: 1px solid #e4e4e4;
+  padding: var(--padding);
+  position: relative;
+  transition: transform 0.3s cubic-bezier(0.68, -0.6, 0.32, 1.2),
+    background-color 0.3s ease;
+  container-type: size;
+  --padding: 1em;
+  --size: 6.25em;
+  --end-position: calc(var(--size) - var(--padding));
+  cursor: pointer;
+}
+.toggle-button:after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 1em;
+  box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em,
+    rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+  transition: opacity 0.25s ease-in-out;
+  opacity: 0;
+}
+.toggle-button:hover:after {
+  opacity: 1;
+}
+.toggle-button::before {
+  content: '';
+  width: var(--size);
+  aspect-ratio: 1;
+  background: #ececec;
+  border-radius: 0.75em;
+  transition: all 0.3s cubic-bezier(0.68, -0.6, 0.32, 1.2);
+  position: absolute;
+  inset-block-end: var(--padding);
+  inset-inline-start: var(--padding);
+}
+.toggle-button[aria-pressed='true'] {
+  background: rgba(0, 0, 0, 0.1);
+}
+.toggle-button:active {
+  transform: scale(0.98) translate(3px, 3px);
+}
+.toggle-button[aria-pressed='true']::before {
+  background: #8f97f3;
+  inset-inline-start: calc(100cqw - var(--end-position));
+  inset-block-end: calc(100cqh - var(--end-position));
+}
+@media (prefers-reduced-motion: reduce) {
+  .toggle-button,
+  .toggle-button::before {
+    transition: none;
+    animation: none;
+  }
+}
