@@ -40,7 +40,7 @@
   inset-inline-start: var(--padding);
 }
 .toggle-button[aria-pressed='true'] {
-  background: rgba(0, 0, 0, 0.1);
+  background: rgba(143, 151, 243, 0.04);
 }
 .toggle-button:active {
   transform: scale(0.98) translate(3px, 3px);
