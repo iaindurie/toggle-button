@@ -5,7 +5,7 @@ import { act } from 'react-dom/test-utils';
 
 describe('Toggle component', () => {
   afterEach(() => {
-    vi.restoreAllMocks(); // reset timers after each test
+    vi.restoreAllMocks();
   });
 
   it('renders with default state', () => {
@@ -53,6 +53,5 @@ describe('Toggle component', () => {
       vi.advanceTimersByTime(2000);
     });
 
-    // No state update should happen after unmount — test passes if no errors
   });
 });
